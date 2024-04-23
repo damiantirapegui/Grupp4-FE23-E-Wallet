@@ -8,7 +8,7 @@ export default function Card() {
       <header className="card-header">
         <div className="wifi-and-chip">
           <div className="wifi" alt="wifi-icon">
-            <Icon path={mdiWifi} size={1} color="background: #000000" />
+            <Icon path={mdiWifi} size={1} color="#666" />
           </div>
           <div className="chip">
             <Icon
