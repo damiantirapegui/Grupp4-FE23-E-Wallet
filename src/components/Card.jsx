@@ -1,18 +1,14 @@
 import React from "react";
-import "../Card.css";
 
 export default function Card() {
   return (
     <article className="card">
       <header className="card-header">
         <div className="wifi-and-chip">
-          <div className="wifi" alt="wifi-icon">
-            wifi
-          </div>
-          <div className="chip">chip</div>
+          <div className="wifi" alt="wifi-icon"></div>
+          <div className="chip"></div>
         </div>
         <div className="bank-logo">
-          bank logo
           {/* <img src={`/${vendor}-logo.png`} alt={`${vendor} Logo`} /> */}
         </div>
       </header>
