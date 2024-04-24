@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <div>hej</div>
         <Routes>
           <Route index element={<Home />} />
           <Route path="/AddCard" element={<AddCard />} />
