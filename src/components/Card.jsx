@@ -1,6 +1,5 @@
 import React from "react";
-import Icon from "@mdi/react";
-import { mdiIntegratedCircuitChip, mdiWifi, mdiCurrencyBtc } from "@mdi/js";
+import "../Card.css";
 
 export default function Card() {
   return (
@@ -8,21 +7,12 @@ export default function Card() {
       <header className="card-header">
         <div className="wifi-and-chip">
           <div className="wifi" alt="wifi-icon">
-            <Icon path={mdiWifi} size={1} color="#666" />
+            wifi
           </div>
-          <div className="chip">
-            <Icon
-              path={mdiIntegratedCircuitChip}
-              title="User Profile"
-              size={1.5}
-              horizontal
-              vertical
-              color="#ECE6DF"
-            />
-          </div>
+          <div className="chip">chip</div>
         </div>
         <div className="bank-logo">
-          <Icon path={mdiCurrencyBtc} size={1} />
+          bank logo
           {/* <img src={`/${vendor}-logo.png`} alt={`${vendor} Logo`} /> */}
         </div>
       </header>
