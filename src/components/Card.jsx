@@ -4,11 +4,20 @@ export default function Card() {
   return (
     <article className="card">
       <header className="card-header">
-        <div className="wifi-and-chip">
-          <div className="wifi" alt="wifi-icon"></div>
-          <div className="chip"></div>
+        <div className="blipp-and-chip">
+          <img
+            src="./src/assets/blipp_dark.png"
+            className="blipp"
+            alt="blipp-icon"
+          />
+          <img src="./src/assets/chip.png" className="chip" alt="chip-icon" />
         </div>
-        <div className="bank-logo">
+        <div className="bank-logo-container">
+          <img
+            src="./src/assets/bitcoin.png"
+            className="bank-logo"
+            alt="bank-logo"
+          />
           {/* <img src={`/${vendor}-logo.png`} alt={`${vendor} Logo`} /> */}
         </div>
       </header>
