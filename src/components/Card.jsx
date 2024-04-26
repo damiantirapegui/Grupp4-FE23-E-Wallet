@@ -10,7 +10,11 @@ export default function Card() {
             className="blipp"
             alt="blipp-icon"
           />
-          <img src="./src/assets/chip.png" className="chip" alt="chip-icon" />
+          <img
+            src="./src/assets/chip-dark.png"
+            className="chip"
+            alt="chip-icon"
+          />
         </div>
         <div className="bank-logo-container">
           <img
