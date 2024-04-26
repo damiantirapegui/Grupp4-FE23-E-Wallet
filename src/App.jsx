@@ -1,7 +1,12 @@
-import React from "react";
+import "./index.css";
+import CardForm from "./pages/add-card/CardForm";
 
 function App() {
-  return <></>;
+  return (
+		<>
+			<CardForm />
+		</>
+	);
 }
 
 export default App;
