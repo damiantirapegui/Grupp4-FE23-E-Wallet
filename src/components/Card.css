@@ -54,7 +54,6 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  font-weight: 400;
   line-height: 13.44px;
   color: #000000cc;
 }
@@ -68,6 +67,5 @@
 .card-holder,
 .valid-thru {
   font-size: 18px;
-  font-weight: 400;
   line-height: 20.16px;
 }

@@ -3,6 +3,7 @@ import { AddCard } from "./pages/addcard/AddCard";
 import { Home } from "./pages/home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import CardStack from "./components/CardStack";
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
         </Routes>
       </BrowserRouter>
+      <CardStack />
     </>
   );
 }
