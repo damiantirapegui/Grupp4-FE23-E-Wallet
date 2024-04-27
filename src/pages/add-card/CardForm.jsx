@@ -38,7 +38,7 @@ const CardForm = () => {
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
+		<form className="form-container" onSubmit={handleSubmit}>
       <div className="input-container">
         <label className="form-input">
           <p className="form-heading">Card Number</p>
@@ -100,16 +100,21 @@ const CardForm = () => {
       <div className="input-container">
         <label className="form-input">
           <p className="form-heading">VENDOR</p>
-            <input
-              type="text"
-              id="vendor"
-              name="vendor"
-              value={formData.vendor}
-              onChange={handleChange}
-              className="large-input"
-              required
-            />
-        </label>
+					<select
+						id="vendor"
+						name="vendor"
+						value={formData.vendor}
+						onChange={handleChange}
+						className="large-input"
+						required
+					>
+						<option value="">Select Vendor</option>
+						<option value="1">Bitcoin Inc</option>
+						<option value="2">Ninja Bank</option>
+						<option value="3">Block Chain Inc</option>
+						<option value="4">Evil Corp</option>
+					</select>
+				</label>
       </div>
       <div className="btn-container">
         <button type="submit">Add card</button>
