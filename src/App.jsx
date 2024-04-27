@@ -1,4 +1,4 @@
-import Card from "./components/Card";
+import Card from "./components/bankcard/Card";
 import { AddCard } from "./pages/addcard/AddCard";
 import { Home } from "./pages/home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
