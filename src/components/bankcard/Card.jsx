@@ -1,6 +1,5 @@
 import React from "react";
 import "./Card.css";
-import "./style.css";
 export default function Card() {
   return (
     <article className="card">
@@ -11,7 +10,12 @@ export default function Card() {
             className="blipp"
             alt="blipp-icon"
           />
-          <img src="./src/assets/chip.png" className="chip" alt="chip-icon" />
+          <img
+            src="./src/assets/chip-dark.png"
+            className="chip"
+            alt="chip-icon"
+            
+          />
         </div>
         <div className="bank-logo-container">
           <img
