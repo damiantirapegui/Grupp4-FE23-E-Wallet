@@ -38,87 +38,87 @@ const CardForm = () => {
   };
 
   return (
-		<form className="form-container" onSubmit={handleSubmit}>
+    <form className="form-container" onSubmit={handleSubmit}>
       <div className="input-container">
         <label className="form-input">
           <p className="form-heading">Card Number</p>
-            <input
-              type="text"
-              id="cardNumber"
-              name="cardNumber"
-              value={formData.cardNumber}
-              onChange={handleChange}
-              maxLength={16}
-              className="large-input"
-              required
-            />
+          <input
+            type="text"
+            id="cardNumber"
+            name="cardNumber"
+            value={formData.cardNumber}
+            onChange={handleChange}
+            maxLength={16}
+            className="large-input"
+            required
+          />
         </label>
       </div>
       <div className="input-container">
         <label className="form-input">
           <p className="form-heading">Cardholder Name</p>
-            <input
-              type="text"
-              id="cardholderName"
-              name="cardholderName"
-              value={formData.cardholderName}
-              onChange={handleChange}
-              className="large-input"
-              required
-            />
+          <input
+            type="text"
+            id="cardholderName"
+            name="cardholderName"
+            value={formData.cardholderName}
+            onChange={handleChange}
+            className="large-input"
+            required
+          />
         </label>
       </div>
       <div className="small-form-container">
         <label className="form-input">
           <p className="form-heading">Valid Thru</p>
-            <input
-              type="text"
-              id="validThru"
-              name="validThru"
-              value={formData.validThru}
-              onChange={handleChange}
-              className="small-input"
-              placeholder="MM/YY"
-              maxLength={5}
-              required
-            />
+          <input
+            type="text"
+            id="validThru"
+            name="validThru"
+            value={formData.validThru}
+            onChange={handleChange}
+            className="small-input"
+            placeholder="MM/YY"
+            maxLength={5}
+            required
+          />
         </label>
         <label className="form-input">
           <p className="form-heading">CVV</p>
-            <input
-              type="text"
-              id="cvv"
-              name="cvv"
-              value={formData.cvv}
-              onChange={handleChange}
-              maxLength={3}
-              className="small-input"
-              required
-            />
+          <input
+            type="text"
+            id="cvv"
+            name="cvv"
+            value={formData.cvv}
+            onChange={handleChange}
+            maxLength={3}
+            className="small-input"
+            required
+          />
         </label>
       </div>
       <div className="input-container">
         <label className="form-input">
           <p className="form-heading">VENDOR</p>
-					<select
-						id="vendor"
-						name="vendor"
-						value={formData.vendor}
-						onChange={handleChange}
-						className="large-input"
-						required
-					>
-						<option value="">Select Vendor</option>
-						<option value="1">Bitcoin Inc</option>
-						<option value="2">Ninja Bank</option>
-						<option value="3">Block Chain Inc</option>
-						<option value="4">Evil Corp</option>
-					</select>
-				</label>
+          <select
+            id="vendor"
+            name="vendor"
+            value={formData.vendor}
+            onChange={handleChange}
+            className="large-input"
+            required
+          >
+            <option value="">Select Vendor</option>
+            <option value="1">Bitcoin Inc</option>
+            <option value="2">Ninja Bank</option>
+            <option value="3">Block Chain Inc</option>
+            <option value="4">Evil Corp</option>
+          </select>
+        </label>
       </div>
-      <div className="btn-container">
+      {/* <div className="btn-container">
         <button type="submit">Add card</button>
-      </div>
+      </div> */}
     </form>
   );
 };

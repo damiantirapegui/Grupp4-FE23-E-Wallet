@@ -62,12 +62,8 @@ function CardStack() {
           <Card cardDetails={card} />
         </section>
       ))}
-
-
     </div>
   );
 }
-
-
 
 export default CardStack;
