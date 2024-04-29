@@ -2,7 +2,8 @@ import React from "react";
 import Card from "./Card";
 import "./CardStack.css";
 import { useState } from "react";
-function CardStack() {
+
+export default function CardStack() {
   const [cards, setCards] = useState([
     {
       id: 1,
@@ -46,24 +47,57 @@ function CardStack() {
     },
   ]);
 
-  const combinedCards =
-    cards.length < 4
-      ? [...defaultCards.slice(0, 4 - cards.length), ...cards]
-      : cards;
+  const [activeCard, setActiveCard] = useState(cards[0]);
+
+  const handleClick = (card) => {
+    console.log("Kortet klickat", card);
+    setActiveCard(card);
+  };
+
+  const moveActiveCardToTop = () => {
+    if (activeCard) {
+      const updatedCards = [...cards];
+      const activeCardIndex = updatedCards.findIndex(
+        (c) => c.id === activeCard.id
+      );
+      console.log("Active card index", activeCardIndex);
+      const tempCard = updatedCards[activeCardIndex];
+      updatedCards[activeCardIndex] = updatedCards[0];
+      updatedCards[0] = tempCard;
+      console.log("Updated cards", updatedCards);
+      setCards(updatedCards);
+    }
+  };
+
+  const renderActiveCard = () => {
+    if (activeCard) {
+      return (
+        <div className="active-card-container">
+          <Card cardDetails={activeCard} />
+        </div>
+      );
+    }
+    return null;
+  };
 
   return (
-    <div className="card-container">
-      {combinedCards.map((card, index) => (
-        <section
-          key={card.id}
-          className="card-container__card"
-          style={{ top: `${index * 50}px` }}
-        >
-          <Card cardDetails={card} />
-        </section>
-      ))}
-    </div>
+    <main>
+      {renderActiveCard()}
+      <section className="card-container">
+        {cards.map((card, index) => (
+          <article
+            key={card.id}
+            className="card-container__card"
+            style={{ top: `${index * 50}px` }}
+            onClick={() => {
+              handleClick(card);
+              moveActiveCardToTop();
+            }}
+          >
+            <Card cardDetails={card} />
+          </article>
+        ))}
+      </section>
+    </main>
   );
 }
-
-export default CardStack;
