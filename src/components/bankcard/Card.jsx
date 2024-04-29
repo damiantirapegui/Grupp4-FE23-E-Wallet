@@ -15,20 +15,18 @@ export default function Card({ cardDetails }) {
 
   const cardClassName = `card card-${vendor}`;
 
-  console.log("Vendor:", vendor);
   const getBlippTheme = () => {
     switch (vendor) {
-      case "Bitcoin":
+      case "bitcoin":
         return "blipp_dark";
-      case "Ninja":
-      case "Evil":
-      case "Chain":
+      case "ninja":
+      case "evil":
+      case "chain":
         return "blipp_light";
       default:
         return "blipp_light";
     }
   };
-  console.log("Blipp theme:", getBlippTheme());
 
   return (
     <article className={cardClassName}>
