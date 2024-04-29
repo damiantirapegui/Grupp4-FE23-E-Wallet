@@ -13,6 +13,7 @@ main {
 .card-container__card {
   position: absolute;
   width: 100%;
+  cursor: pointer;
 }
 
 .active-card-container {
