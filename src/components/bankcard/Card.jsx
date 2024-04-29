@@ -1,6 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Card.css";
-export default function Card() {
+
+export default function Card({ cardDetails }) {
+  if (!cardDetails) {
+    return null;
+  }
+
+  const { cardNumber, cardholderName, validThru, ccv, vendor } = cardDetails;
+
+  const maxDigits = 16;
+
+  const formattedCardNumber = cardNumber
+    ? cardNumber.match(/.{1,4}/g).join(" ")
+    : "";
+
+  const cardClassName = `card card-${vendor}`;
+
+  const getBlippTheme = () => {
+    switch (vendor) {
+      case "bitcoin":
+        return "blipp_dark";
+      case "ninja":
+      case "evil":
+      case "chain":
+        return "blipp_light";
+      default:
+        return "blipp_light";
+    }
+  };
+
   return (
     <article className={cardClassName}>
       <header className="card-header">
@@ -10,15 +38,11 @@ export default function Card() {
             className="blipp"
             alt="blipp-icon"
           />
-          <img
-            src="./src/assets/chip-dark.png"
-            className="chip"
-            alt="chip-icon"
-          />
+          <img src="./src/assets/chip.png" className="chip" alt="chip-icon" />
         </div>
         <div className="bank-logo-container">
           <img
-            src="./src/assets/bitcoin.png"
+            src={`./src/assets/${vendor}.png`}
             className="bank-logo"
             alt="bank-logo"
           />
@@ -26,14 +50,14 @@ export default function Card() {
         </div>
       </header>
       <section className="card-body">
-        <div className="card-number">XXXX XXXX XXXX XXXX</div>
+        <div className="card-number">{formattedCardNumber}</div>
         <div className="card-labels">
           <p className="card-label">Cardholder name</p>
           <p className="card-label">Valid thru</p>
         </div>
         <div className="card-content">
-          <p className="card-holder">Firstname Lastname</p>
-          <p className="valid-thru"> MM / YY </p>
+          <p className="card-holder">{cardholderName}</p>
+          <p className="valid-thru">{validThru}</p>
         </div>
       </section>
     </article>
