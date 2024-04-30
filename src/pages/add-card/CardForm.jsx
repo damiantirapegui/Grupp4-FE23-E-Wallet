@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./CardForm.css";
 
+
 const CardForm = ({
   onCardNumberChange,
   onCardholderNameChange,
@@ -15,6 +16,7 @@ const CardForm = ({
     vendor: "",
   });
 
+
   const handleNameChange = (newName) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -23,17 +25,18 @@ const CardForm = ({
     onCardholderNameChange(newName); // Uppdatera cardholderName i huvudkomponenten
   };
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+
 
     if (name === "vendor") {
       onVendorChange(value); // Skicka det valda leverantörs-ID till förälderkomponenten
     }
 
+
     // Formatera Valid Thru som MM/YY
     if (name === "validThru") {
-      const formattedValue = value;
-
       setFormData((prevData) => ({
         ...prevData,
         [name]: value.substring(0, 5), // Begränsa till MM/YY format
@@ -51,17 +54,17 @@ const CardForm = ({
       onCardNumberChange(formattedCardNumber);
     }
 
+
     if (name === "cardholderName") {
       const containsSpace = value.includes(" ");
       const formattedName = containsSpace
         ? value
-            .split(" ")
-            .map((namePart) => namePart.trim())
-            .join(" ") // Gå med i de separerade namnen med ett mellanslag
+          .split(" ")
+          .map((namePart) => namePart.trim())
+          .join(" ") // Gå med i de separerade namnen med ett mellanslag
         : value; // Ta bort mellanslag i början och slutet av strängen
       setFormData((prevData) => ({
         ...prevData,
-
         [name]: formattedName,
       }));
       onCardholderNameChange(formattedName);
@@ -73,6 +76,7 @@ const CardForm = ({
       }));
     }
 
+
     if (name === "validThru") {
       setFormData((prevData) => ({
         ...prevData,
@@ -81,6 +85,7 @@ const CardForm = ({
       onValidThruChange(value.substring(0, 5)); // Anropa onValidThruChange för att uppdatera validthru-datumet
     }
   };
+
 
   // ********************************************************************
   const handleSubmit = (e) => {
@@ -171,5 +176,6 @@ const CardForm = ({
     </form>
   );
 };
+
 
 export default CardForm;
