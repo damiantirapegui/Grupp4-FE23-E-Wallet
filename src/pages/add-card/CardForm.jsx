@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import "./CardForm.css";
 
-
-const CardForm = ({
-  onCardNumberChange,
-  onCardholderNameChange,
-  onValidThruChange,
-  onVendorChange,
-}) => {
+const CardForm = () => {
   const [formData, setFormData] = useState({
     cardNumber: "",
     cardholderName: "",
@@ -16,27 +10,15 @@ const CardForm = ({
     vendor: "",
   });
 
-
-  const handleNameChange = (newName) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      cardholderName: newName,
-    }));
-    onCardholderNameChange(newName); // Uppdatera cardholderName i huvudkomponenten
-  };
-
-
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-
-    if (name === "vendor") {
-      onVendorChange(value); // Skicka det valda leverantörs-ID till förälderkomponenten
-    }
-
-
     // Formatera Valid Thru som MM/YY
     if (name === "validThru") {
+      const formattedValue = value
+        .replace(/\D/g, "") // Tar bort icke-numeriska tecken
+        .replace(/^(\d{2})/, "$1/"); // Lägger till '/' efter de två första siffrorna
+
       setFormData((prevData) => ({
         ...prevData,
         [name]: value.substring(0, 5), // Begränsa till MM/YY format
@@ -47,47 +29,8 @@ const CardForm = ({
         [name]: value,
       }));
     }
-    if (name === "cardNumber") {
-      const formattedCardNumber = value
-        .replace(/\s/g, "")
-        .replace(/(\d{4})/g, "$1 ");
-      onCardNumberChange(formattedCardNumber);
-    }
-
-
-    if (name === "cardholderName") {
-      const containsSpace = value.includes(" ");
-      const formattedName = containsSpace
-        ? value
-          .split(" ")
-          .map((namePart) => namePart.trim())
-          .join(" ") // Gå med i de separerade namnen med ett mellanslag
-        : value; // Ta bort mellanslag i början och slutet av strängen
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: formattedName,
-      }));
-      onCardholderNameChange(formattedName);
-      handleNameChange(formattedName);
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
-
-
-    if (name === "validThru") {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value.substring(0, 5),
-      }));
-      onValidThruChange(value.substring(0, 5)); // Anropa onValidThruChange för att uppdatera validthru-datumet
-    }
   };
 
-
-  // ********************************************************************
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
@@ -176,6 +119,5 @@ const CardForm = ({
     </form>
   );
 };
-
 
 export default CardForm;

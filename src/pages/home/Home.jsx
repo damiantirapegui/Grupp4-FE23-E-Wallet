@@ -3,13 +3,12 @@ import CardStack from "../../components/bankcard/CardStack";
 import { ButtonHome } from "../../components/button/ButtonHome";
 import { PageTitle } from "../../components/pagetitle/PageTitle";
 
-
 export function Home({ cards, setCards, activeCard, setActiveCard }) {
   return (
     <>
       <PageTitle title={"E-WALLET"} secondTitle={"ACTIVE CARD"} />
-      {/* <Card /> */}
-      <CardStack cards={cards} setCards={setCards} activeCard={activeCard} setActiveCard={setActiveCard} />
+      <Card />
+      <CardStack />
       <ButtonHome />
     </>
   );
