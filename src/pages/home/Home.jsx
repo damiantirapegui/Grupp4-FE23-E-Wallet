@@ -9,7 +9,7 @@ export function Home() {
   return (
     <>
       <PageTitle title={"E-WALLET"} secondTitle={"ACTIVE CARD"} />
-      <Card />
+      {/* <Card /> */}
       <CardStack />
       <ButtonHome />
     </>

@@ -11,6 +11,7 @@ function CardStack() {
       validThru: "12/24",
       ccv: "123",
       vendor: "bitcoin",
+      color: "#ffb749",
     },
     {
       id: 2,
@@ -19,6 +20,7 @@ function CardStack() {
       validThru: "11/23",
       ccv: "456",
       vendor: "ninja",
+      color: "#3a3a3a",
     },
     {
       id: 3,
@@ -27,6 +29,7 @@ function CardStack() {
       validThru: "1/23",
       ccv: "456",
       vendor: "chain",
+      color: "#7c4ede",
     },
     {
       id: 4,
@@ -35,6 +38,7 @@ function CardStack() {
       validThru: "10/24",
       ccv: "666",
       vendor: "evil",
+      color: "#db2e4d",
     },
     {
       id: 5,
@@ -43,26 +47,36 @@ function CardStack() {
       validThru: "9/25",
       ccv: "888",
       vendor: "bitcoin",
+      color: "#ffb749",
     },
   ]);
 
-  const combinedCards =
-    cards.length < 4
-      ? [...defaultCards.slice(0, 4 - cards.length), ...cards]
-      : cards;
+  // const combinedCards =
+  //   cards.length < 4
+  //     ? [...defaultCards.slice(0, 4 - cards.length), ...cards]
+  //     : cards;
 
   return (
-    <div className="card-container">
-      {combinedCards.map((card, index) => (
-        <section
-          key={card.id}
-          className="card-container__card"
-          style={{ top: `${index * 50}px` }}
-        >
-          <Card cardDetails={card} />
-        </section>
-      ))}
-    </div>
+    <>
+      <Card />
+      <div className="card-container">
+        {cards.map((card, index) => (
+          <section
+            key={card.id}
+            className="card-container__card"
+            style={{ top: `${index * 50}px` }}
+          >
+            <Card
+              cardNumber={card.cardNumber}
+              cardholderName={card.cardholderName}
+              validThru={card.validThru}
+              vendor={card.vendor}
+              color={card.color}
+            />
+          </section>
+        ))}
+      </div>
+    </>
   );
 }
 
