@@ -12,12 +12,36 @@
   text-transform: uppercase;
   font-size: 12px;
   box-shadow: 0px 0px 16px 0px #00000014;
+  text-shadow: 0.1px 0.1px white, -0.5px -0.5px #0000008c;
 }
 
 .card-header {
   display: flex;
   width: 95%;
   justify-content: space-between;
+}
+
+.card-bitcoin {
+  background-color: var(--card-bitcoin);
+}
+
+.card-ninja {
+  background-color: var(--card-ninja);
+  color: #fff;
+}
+
+.card-chain {
+  background-color: var(--card-chain);
+}
+
+.card-evil {
+  background-color: var(--card-evil);
+  color: #fff;
+  text-shadow: 0.1px 0.1px #fff, -0.5px -0.5px #0000008c;
+}
+
+.card-new {
+  background-color: var(--card-new);
 }
 
 .blipp-and-chip {
@@ -38,7 +62,7 @@
 }
 
 .bank-logo {
-  height: 70%;
+  height: 45%;
 }
 
 .card-body {
@@ -55,13 +79,12 @@
   justify-content: space-between;
   width: 100%;
   line-height: 13.44px;
-  color: #000000cc;
+  color: inherit;
 }
 
 .card-number {
   font-size: 24px;
   letter-spacing: 3px;
-  color: #000000;
 }
 
 .card-holder,
