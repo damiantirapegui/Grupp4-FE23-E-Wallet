@@ -13,17 +13,29 @@ const CardForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Formatera Valid Thru som MM/YY
-    if (name === "validThru") {
+    // Logik för cardNumber
+    if (name === "cardNumber") {
+      // Tar bort icke-numreriska tecken
+      const numericValue = value.replace(/\D/g, "");
+      // Begränsar till 16 tecken
+      const truncatedValue = numericValue.substring(0, 16);
+
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: truncatedValue,
+      }));
+    } else if (name === "validThru") {
+      // Formatera Valid Thru som MM/YY
       const formattedValue = value
         .replace(/\D/g, "") // Tar bort icke-numeriska tecken
         .replace(/^(\d{2})/, "$1/"); // Lägger till '/' efter de två första siffrorna
 
       setFormData((prevData) => ({
         ...prevData,
-        [name]: formattedValue.substring(0, 5), // Begränsa till MM/YY format
+        [name]: formattedValue.substring(0, 5), // Begränsa format till MM/YY
       }));
     } else {
+      // För övriga input fields uppdateras formuläret direkt
       setFormData((prevData) => ({
         ...prevData,
         [name]: value,
@@ -116,9 +128,6 @@ const CardForm = () => {
           </select>
         </label>
       </div>
-      {/* <div className="btn-container">
-        <button type="submit">Add card</button>
-      </div> */}
     </form>
   );
 };
